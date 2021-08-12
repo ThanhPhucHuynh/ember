@@ -135,7 +135,7 @@ def create_metadata(data_dir):
     train_feature_paths = [os.path.join(data_dir, "train_features_{}.jsonl".format(i)) for i in range(6)]
     train_records = list(pool.imap(read_metadata_record, raw_feature_iterator(train_feature_paths)))
 
-    metadata_keys = ["sha256", "appeared", "label", "avclass"]
+    metadata_keys = ["sha256", "appeared", "label", "avclass","histogram","byteentropy"]
     ordered_metadata_keys = [k for k in metadata_keys if k in train_records[0].keys()]
 
     train_metadf = pd.DataFrame(train_records)[ordered_metadata_keys]
