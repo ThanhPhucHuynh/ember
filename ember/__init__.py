@@ -122,7 +122,7 @@ def read_metadata_record(raw_features_string):
     Decode a raw features string and return the metadata fields
     """
     all_data = json.loads(raw_features_string)
-    metadata_keys = {"sha256", "appeared", "label", "avclass"}
+    metadata_keys = {"sha256", "appeared", "label", "avclass","histogram","byteentropy"}
     return {k: all_data[k] for k in all_data.keys() & metadata_keys}
 
 
